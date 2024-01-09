@@ -1,20 +1,22 @@
-let defineA = function() {
+function defineA() {
     return Math.floor((Math.random() * 10) / 3);
-};
+}
+
+let a = defineA();
 
 function getComputerChoice() {
- 
-    if (defineA === 0) {
-        defineA = 1;
+
+    if (a === 0) {
+        a = 1;
         console.log("zero");
         return "Rock";
-    } else if (defineA === 1) {
+    } else if (a === 1) {
         console.log("rock");
         return "Rock";
-    } else if (defineA === 2) {
+    } else if (a === 2) {
         console.log("paper");
         return "Paper";
-    } else if (defineA === 3) {
+    } else if (a === 3) {
         console.log("scissors");
         return "Scissors";
     }
@@ -22,7 +24,6 @@ function getComputerChoice() {
 
 function playRound(computerSelection, playerSelection) {
     let computerSelection = getComputerChoice();
-    // let valueA = defineA;
     let playerText = prompt("What is your choice?");
 
     if (playerText) {
@@ -43,19 +44,22 @@ function playRound(computerSelection, playerSelection) {
 
         console.log(playerSelectionCapital);
 
-        if (valueA === 1 && b === 3) {
+        if (a === 1 && b === 3) {
         console.log(`You lose! Rock beats Scissors`);
-        } else if (valueA === 3 && b ===1) {
+        } else if (a === 3 && b ===1) {
         console.log("You won! Scissors beats Rock");
-        } else if (valueA > b) {
-        console.log(`You lost! ${computerSelection} beats ${playerSelectionCapital}`);
-        } else if (valueA < b) {
+        } else if (a > b) {
+        console.log(`You lostdefineA! ${computerSelection} beats ${playerSelectionCapital}`);
+        } else if (a < b) {
         console.log(`You won! ${playerSelectionCapital} beats ${computerSelection}`);
-        } else if (valueA === b) {
+        } else if (a === b) {
         console.log("It was a tie");
+        defineA();
+        console.log("defineA");
         getComputerChoice();
         console.log("getComputerChoice");
         playRound();
+        console.log("playRound");
         }
 
     } else {
