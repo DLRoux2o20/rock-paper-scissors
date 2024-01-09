@@ -7,9 +7,8 @@ let a = defineA();
 function getComputerChoice() {
 
     if (a === 0) {
-        a = 1;
-        console.log("zero");
-        return "Rock";
+        a = defineA();
+        getComputerChoice();
     } else if (a === 1) {
         console.log("rock");
         return "Rock";
@@ -22,15 +21,14 @@ function getComputerChoice() {
     }
 }
 
-function playRound(computerSelection, playerSelection) {
-    let computerSelection = getComputerChoice();
+function playRound(playerSelection, computerSelection) {
+    let computerChoice = getComputerChoice();
     let playerText = prompt("What is your choice?");
 
     if (playerText) {
-        console.log("entered");
         let playerSelection = playerText.toLowerCase();
         let playerSelectionCapital = (playerSelection.charAt(0)).toUpperCase() + playerSelection.substr(1, (playerSelection.length) - 1);
-        alert(computerSelection + " " + playerSelectionCapital);
+        alert(computerChoice + " " + playerSelectionCapital);
 
         if (playerSelection === "rock") {
             var b = 1;
@@ -47,19 +45,16 @@ function playRound(computerSelection, playerSelection) {
         if (a === 1 && b === 3) {
         console.log(`You lose! Rock beats Scissors`);
         } else if (a === 3 && b ===1) {
-        console.log("You won! Scissors beats Rock");
+        console.log("You won! Rock beats Scissors");
         } else if (a > b) {
-        console.log(`You lostdefineA! ${computerSelection} beats ${playerSelectionCapital}`);
+        console.log(`You lost! ${computerChoice} beats ${playerSelectionCapital}`);
         } else if (a < b) {
-        console.log(`You won! ${playerSelectionCapital} beats ${computerSelection}`);
+        console.log(`You won! ${playerSelectionCapital} beats ${computerChoice}`);
         } else if (a === b) {
         console.log("It was a tie");
-        defineA();
-        console.log("defineA");
+        a = defineA();
         getComputerChoice();
-        console.log("getComputerChoice");
         playRound();
-        console.log("playRound");
         }
 
     } else {
