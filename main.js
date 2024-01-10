@@ -8,15 +8,12 @@ function getComputerChoice() {
 
     if (a === 0) {
         a = defineA();
-        getComputerChoice();
+        return getComputerChoice();
     } else if (a === 1) {
-        console.log("rock");
         return "Rock";
     } else if (a === 2) {
-        console.log("paper");
         return "Paper";
     } else if (a === 3) {
-        console.log("scissors");
         return "Scissors";
     }
 }
@@ -40,6 +37,7 @@ function playRound(playerSelection, computerSelection) {
             alert("Choice invalid");
         }
 
+        console.log(getComputerChoice());
         console.log(playerSelectionCapital);
 
         if (a === 1 && b === 3) {
