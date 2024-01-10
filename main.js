@@ -18,14 +18,20 @@ function getComputerChoice() {
     }
 }
 
-function playRound(playerSelection, computerSelection) {
+function game() {
+    for (i = 0; i < 5; i++) {
+        playRound();
+        function playRound(playerSelection, computerSelection) {
     let computerChoice = getComputerChoice();
     let playerText = prompt("What is your choice?");
 
     if (playerText) {
         let playerSelection = playerText.toLowerCase();
         let playerSelectionCapital = (playerSelection.charAt(0)).toUpperCase() + playerSelection.substr(1, (playerSelection.length) - 1);
-        alert(computerChoice + " " + playerSelectionCapital);
+        alert(computerChoice + " " + "vs" + " " + playerSelectionCapital);
+
+        console.log("Computer Choice: " + getComputerChoice());
+        console.log("Your Choice: " + playerSelectionCapital);
 
         if (playerSelection === "rock") {
             var b = 1;
@@ -36,9 +42,6 @@ function playRound(playerSelection, computerSelection) {
         } else {
             alert("Choice invalid");
         }
-
-        console.log(getComputerChoice());
-        console.log(playerSelectionCapital);
 
         if (a === 1 && b === 3) {
         console.log(`You lose! Rock beats Scissors`);
@@ -59,5 +62,9 @@ function playRound(playerSelection, computerSelection) {
         alert("Please enter choice");
     }  
 }
+    }
+    
+}
 
-playRound();
+
+game();
