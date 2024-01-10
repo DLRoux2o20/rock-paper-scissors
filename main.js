@@ -3,6 +3,9 @@ function defineA() {
 }
 
 let a = defineA();
+let computerScore = 0;
+let playerScore = 0;
+let choiceInvalidDetector = 0;
 
 function getComputerChoice() {
 
@@ -41,29 +44,57 @@ function game() {
             var b = 3;
         } else {
             alert("Choice invalid");
+            i--;
+            choiceInvalidDetector = 1;
         }
 
-        if (a === 1 && b === 3) {
-        console.log(`You lose! Rock beats Scissors`);
+        if (choiceInvalidDetector === 1) {
+            console.log("Choice Invalid");
+            console.log(" ");
+            choiceInvalidDetector = 0;
+        } else if (a === 1 && b === 3) {
+            console.log(`You lose! Rock beats Scissors`);
+            computerScore += 1;
+            console.log("Your Score: " + playerScore);
+            console.log("Computer Score: " + computerScore);
+            console.log(" ");
         } else if (a === 3 && b ===1) {
-        console.log("You won! Rock beats Scissors");
+            console.log("You won! Rock beats Scissors");
+            playerScore += 1;
+            console.log("Your Score: " + playerScore);
+            console.log("Computer Score: " + computerScore);
+            console.log(" ");
         } else if (a > b) {
-        console.log(`You lost! ${computerChoice} beats ${playerSelectionCapital}`);
+            console.log(`You lost! ${computerChoice} beats ${playerSelectionCapital}`);
+            computerScore += 1;
+            console.log("Your Score: " + playerScore);
+            console.log("Computer Score: " + computerScore);
+            console.log(" ");
         } else if (a < b) {
-        console.log(`You won! ${playerSelectionCapital} beats ${computerChoice}`);
+            console.log(`You won! ${playerSelectionCapital} beats ${computerChoice}`);
+            playerScore += 1;
+            console.log("Your Score: " + playerScore);
+            console.log("Computer Score: " + computerScore);
+            console.log(" ");
         } else if (a === b) {
-        console.log("It was a tie");
-        a = defineA();
-        getComputerChoice();
-        playRound();
+            console.log("It was a tie");
+            a = defineA();
+            getComputerChoice();
+            playRound();
         }
+
+        if (playerScore === 3) {
+            console.log("You won the best of five " + playerScore + " to " + computerScore);
+        } else if (computerScore === 3) {
+            console.log("You lost the best of five " + playerScore + " to " + computerScore);
+        }    
 
     } else {
         alert("Please enter choice");
-    }  
+    }
+
 }
     }
-    
 }
 
 
